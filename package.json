@@ -1,0 +1,32 @@
+{
+  "name": "iphone-clone",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "bun --hot src/index.ts",
+    "build": "bun build ./src/index.html --outdir=dist --splitting --production --sourcemap=linked && bun -e \"const fs = require('node:fs/promises'); await fs.rm('dist/assets', { recursive: true, force: true }); await fs.cp('public/assets', 'dist/assets', { recursive: true })\"",
+    "start": "NODE_ENV=production bun src/index.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@react-three/drei": "^10.7.9",
+    "@react-three/fiber": "^9.8.1",
+    "@use-gesture/react": "^10.3.1",
+    "idb-keyval": "^6.3.0",
+    "motion": "^14.0.0",
+    "react": "^19",
+    "react-dom": "^19",
+    "three": "^0.186.1",
+    "zustand": "^5.0.15"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "@types/three": "^0.186.0"
+  },
+  "peerDependencies": {
+    "typescript": "^7"
+  }
+}

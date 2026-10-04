@@ -1,0 +1,142 @@
+:root {
+  /* SF Pro on Apple devices; Inter elsewhere. system-ui would resolve to Segoe UI on Windows, which reads as Windows, not iOS. */
+  --font: -apple-system, BlinkMacSystemFont, "SF Pro Text", Inter, "Helvetica Neue", sans-serif;
+  --font-mono: ui-monospace, "SF Mono", Menlo, monospace;
+
+  /* screen geometry (logical px) */
+  --screen-w: 390px;
+  --screen-h: 844px;
+  --screen-r: 55px;
+  --safe-top: 54px;
+  --safe-bottom: 34px;
+
+  /* radii */
+  --r-icon: 14px;
+  --r-row: 12px;
+  --r-rounded: 24px;
+  --r-card: 28px;
+  --r-pill: 999px;
+
+  /* liquid glass */
+  --glass-blur: 12px;
+  --glass-blur-clear: 3px;
+  --glass-sat: 180%;
+  --glass-refract: 0.07;
+  --glass-tint: rgba(255, 255, 255, 0.16);
+  --glass-tint-clear: rgba(255, 255, 255, 0.04);
+  --glass-fg: #fff;
+  --glass-edge: rgba(255, 255, 255, 0.75);
+  --glass-edge-soft: rgba(255, 255, 255, 0.22);
+  --glass-light-angle: 145deg;
+  --glass-inner: rgba(255, 255, 255, 0.12);
+  --glass-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+  --glass-glare: 0.45;
+  --glass-glare-pressed: 0.9;
+
+  /* springs (read by ui/motion.ts) */
+  --spring-stiffness: 420;
+  --spring-damping: 34;
+  --app-open-stiffness: 300;
+  --app-open-damping: 28;
+  --app-close-stiffness: 340;
+  --app-close-damping: 38;
+  --jelly-stretch: 0.0016;
+  --jelly-follow: 0.12;
+
+  /* system colours */
+  --tint: #007aff;
+  --green: #34c759;
+  --red: #ff3b30;
+  --orange: #ff9500;
+  --yellow: #ffcc00;
+  --purple: #af52de;
+  --gray: #8e8e93;
+
+  --bg: #f2f2f7;
+  --bg-elev: #ffffff;
+  --label: #000;
+  --label-2: rgba(60, 60, 67, 0.6);
+  --label-3: rgba(60, 60, 67, 0.3);
+  --sep: rgba(60, 60, 67, 0.29);
+  --fill: rgba(120, 120, 128, 0.16);
+  --toggle-off: rgba(120, 120, 128, 0.16);
+
+  --scene-bg: radial-gradient(120% 90% at 50% 15%, #1c1a1f 0%, #0c0b0d 55%, #050505 100%);
+  --page-bg: #0b0b10;
+}
+
+/* Type scale. Declared on the screen root too: var() resolves where a property is declared,
+   so the screen's inline --ts (Settings > Text Size) must recompute these there. */
+:root,
+[data-screen] {
+  --ts: 1;
+  --fs-caption: calc(12px * var(--ts));
+  --fs-footnote: calc(13px * var(--ts));
+  --fs-sub: calc(15px * var(--ts));
+  --fs-body: calc(17px * var(--ts));
+  --fs-title3: calc(20px * var(--ts));
+  --fs-title2: calc(22px * var(--ts));
+  --fs-title: calc(28px * var(--ts));
+  --fs-large: calc(34px * var(--ts));
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+  --tint: #0a84ff;
+  --green: #30d158;
+  --red: #ff453a;
+  --orange: #ff9f0a;
+  --bg: #000;
+  --bg-elev: #1c1c1e;
+  --label: #fff;
+  --label-2: rgba(235, 235, 245, 0.6);
+  --label-3: rgba(235, 235, 245, 0.3);
+  --sep: rgba(84, 84, 88, 0.6);
+  --fill: rgba(120, 120, 128, 0.32);
+  --toggle-off: rgba(120, 120, 128, 0.32);
+  --glass-tint: rgba(40, 40, 46, 0.32);
+}
+
+/* adaptive contrast: content behind the glass decides the foreground */
+[data-tone="light"] {
+  --glass-fg: #111;
+  --glass-tint: rgba(255, 255, 255, 0.4);
+  --glass-edge-soft: rgba(255, 255, 255, 0.5);
+}
+[data-tone="dark"] {
+  --glass-fg: #fff;
+}
+
+html,
+body {
+  margin: 0;
+  height: 100%;
+  background: var(--page-bg);
+  font-family: var(--font);
+  -webkit-font-smoothing: antialiased;
+  overscroll-behavior: none;
+}
+#root {
+  height: 100%;
+}
+button {
+  font: inherit;
+  color: inherit;
+  border: 0;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+:focus-visible {
+  outline: 2px solid var(--tint);
+  outline-offset: 2px;
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}

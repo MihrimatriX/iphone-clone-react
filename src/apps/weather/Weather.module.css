@@ -1,0 +1,256 @@
+/* Animated sky: three <i> layers reused per condition (sun glow, clouds, rain/snow, lightning).
+   fixed = pinned to the screen root (its filter makes it the containing block), so it doesn't scroll. */
+.sky {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  background: linear-gradient(#3b8fe6, #6db6f2);
+}
+.sky i {
+  position: absolute;
+  display: block;
+}
+
+.clear i:first-child {
+  top: 40px;
+  right: -60px;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 236, 160, 0.9), rgba(255, 220, 120, 0) 65%);
+  animation: glow 6s ease-in-out infinite alternate;
+}
+
+.cloudy {
+  background: linear-gradient(#5f7894, #93a9c0);
+}
+.cloudy i,
+.rain i,
+.storm i {
+  width: 340px;
+  height: 120px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.35);
+  filter: blur(24px);
+  animation: drift 26s linear infinite;
+}
+.cloudy i:nth-child(1),
+.rain i:nth-child(1),
+.storm i:nth-child(1) {
+  top: 80px;
+  left: -120px;
+}
+.cloudy i:nth-child(2),
+.storm i:nth-child(2) {
+  top: 220px;
+  left: 120px;
+  animation-duration: 34s;
+  opacity: 0.7;
+}
+.cloudy i:nth-child(3) {
+  top: 380px;
+  left: -40px;
+  animation-duration: 40s;
+  opacity: 0.5;
+}
+
+.rain {
+  background: linear-gradient(#34465c, #5d7086);
+}
+.rain i:nth-child(2),
+.rain i:nth-child(3),
+.snow i {
+  inset: 0;
+  width: auto;
+  height: auto;
+  border-radius: 0;
+  filter: none;
+  background-image: repeating-linear-gradient(105deg, transparent 0 22px, rgba(255, 255, 255, 0.35) 22px 23px, transparent 23px 46px);
+  background-size: 46px 120px;
+  animation: fall 0.6s linear infinite;
+}
+.rain i:nth-child(3) {
+  opacity: 0.5;
+  animation-duration: 0.9s;
+  background-size: 70px 160px;
+}
+
+.snow {
+  background: linear-gradient(#8ea3bd, #cdd8e6);
+}
+.snow i {
+  background-image: radial-gradient(circle, #fff 1.5px, transparent 2px);
+  background-size: 38px 38px;
+  animation: fall 5s linear infinite;
+}
+.snow i:nth-child(2) {
+  background-size: 56px 56px;
+  animation-duration: 8s;
+  opacity: 0.7;
+}
+.snow i:nth-child(3) {
+  background-size: 24px 24px;
+  animation-duration: 12s;
+  opacity: 0.5;
+}
+
+.storm {
+  background: linear-gradient(#1d2333, #3b4256);
+}
+.storm i:nth-child(3) {
+  inset: 0;
+  width: auto;
+  height: auto;
+  border-radius: 0;
+  filter: none;
+  background: #fff;
+  animation: lightning 7s infinite;
+}
+
+.fog {
+  background: linear-gradient(#7e8a97, #b4bcc4);
+}
+.fog i {
+  left: -50%;
+  width: 200%;
+  height: 160px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+  filter: blur(20px);
+  animation: drift 18s linear infinite alternate;
+}
+.fog i:nth-child(1) {
+  top: 160px;
+}
+.fog i:nth-child(2) {
+  top: 360px;
+  animation-duration: 24s;
+}
+.fog i:nth-child(3) {
+  top: 560px;
+  animation-duration: 30s;
+}
+
+.night {
+  background: linear-gradient(#0b1026, #1d2b4f);
+}
+.night.clear i:first-child {
+  background: radial-gradient(circle, rgba(220, 230, 255, 0.5), transparent 60%);
+}
+
+@keyframes glow {
+  to {
+    transform: scale(1.15);
+    opacity: 0.8;
+  }
+}
+@keyframes drift {
+  to {
+    transform: translateX(420px);
+  }
+}
+@keyframes fall {
+  to {
+    background-position: -20px 120px;
+  }
+}
+@keyframes lightning {
+  0%, 92%, 96%, 100% {
+    opacity: 0;
+  }
+  93%, 95% {
+    opacity: 0.55;
+  }
+}
+
+.content {
+  position: relative;
+  color: #fff;
+  padding: 0 16px;
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px 0 28px;
+  font-size: 19px;
+  font-weight: 500;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.15);
+}
+.hero h1 {
+  margin: 0;
+  font-size: 32px;
+  font-weight: 500;
+}
+.temp {
+  font-size: 96px;
+  font-weight: 200;
+  line-height: 1;
+  margin-left: 24px;
+}
+
+.card {
+  padding: 12px 16px;
+  margin-bottom: 14px;
+  --glass-fg: #fff;
+}
+.card h2 {
+  margin: 0 0 8px;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  opacity: 0.65;
+}
+
+.hours {
+  display: flex;
+  gap: 18px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  touch-action: pan-x;
+}
+.hour {
+  flex: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+}
+
+.day {
+  display: grid;
+  grid-template-columns: 64px 28px 36px 1fr 36px;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 0;
+  font-size: 17px;
+  border-top: 0.5px solid rgba(255, 255, 255, 0.2);
+}
+.dayName {
+  text-transform: capitalize;
+}
+.lo {
+  opacity: 0.6;
+  text-align: right;
+}
+.bar {
+  position: relative;
+  height: 5px;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.2);
+}
+.bar i {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  border-radius: 3px;
+  background: linear-gradient(90deg, #6fd3ff, #ffd36b);
+}
+
+.message {
+  position: relative;
+  margin: 200px 40px 0;
+  text-align: center;
+  color: #fff;
+}

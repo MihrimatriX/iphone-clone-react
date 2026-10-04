@@ -1,0 +1,87 @@
+.row {
+  margin-top: 14px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  color: var(--glass-fg);
+}
+
+.circle,
+.rect {
+  position: relative;
+  height: 60px;
+  box-sizing: border-box;
+  background: var(--glass-tint);
+  -webkit-backdrop-filter: blur(18px) saturate(150%);
+  backdrop-filter: blur(18px) saturate(150%);
+  box-shadow: inset 0 0 0 0.5px var(--glass-edge-soft);
+  transition: scale 0.2s;
+}
+button.circle:active,
+.rect:active {
+  scale: 0.95;
+}
+
+.circle {
+  width: 60px;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1px;
+}
+.circle b {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.1;
+  font-variant-numeric: tabular-nums;
+}
+
+.ring {
+  position: absolute;
+  inset: 4px;
+  rotate: -90deg;
+}
+.track,
+.level {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 4.5;
+}
+.track {
+  opacity: 0.25;
+}
+.level {
+  stroke-linecap: round;
+  transition: stroke-dasharray 0.6s;
+}
+.bolt {
+  margin-bottom: -2px;
+}
+
+.rect {
+  width: 168px;
+  padding: 0 14px;
+  border-radius: 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2px;
+  text-align: left;
+}
+.when {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 14px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+.title {
+  font-size: 14px;
+  opacity: 0.75;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

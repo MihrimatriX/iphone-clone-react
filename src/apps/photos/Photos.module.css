@@ -1,0 +1,69 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+}
+
+.thumb {
+  aspect-ratio: 1;
+  overflow: hidden;
+}
+.thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.count,
+.empty {
+  text-align: center;
+  color: var(--label-2);
+  font-size: var(--fs-sub);
+}
+.count {
+  margin: 16px 0;
+  font-weight: 600;
+  color: var(--label);
+}
+
+.date {
+  color: #fff;
+  font-size: var(--fs-sub);
+  font-weight: 600;
+}
+
+.stage {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  touch-action: none;
+  background: #000;
+}
+.stage img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  transition: transform 0.08s linear;
+  user-select: none;
+}
+
+.toolbar {
+  position: absolute;
+  z-index: 5;
+  left: 50%;
+  bottom: calc(var(--safe-bottom) + 6px);
+  translate: -50% 0;
+  display: flex;
+  gap: 28px;
+  padding: 10px 26px;
+  color: #fff;
+}
+.toolbar button {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+}

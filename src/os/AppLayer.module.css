@@ -1,0 +1,30 @@
+.layer {
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+  pointer-events: none;
+  transform-origin: 50% 100%;
+}
+
+.app {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: auto;
+  background: var(--bg);
+}
+
+.loading {
+  position: absolute;
+  inset: 0;
+}
+
+.error {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 40px;
+  text-align: center;
+  color: var(--label-2);
+}

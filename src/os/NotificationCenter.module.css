@@ -1,0 +1,68 @@
+.center {
+  position: absolute;
+  inset: 0;
+  z-index: 50;
+  padding: 0 12px;
+  box-sizing: border-box;
+  background: rgba(10, 10, 20, 0.35);
+  -webkit-backdrop-filter: blur(30px) saturate(160%);
+  backdrop-filter: blur(30px) saturate(160%);
+  color: #fff;
+  touch-action: none;
+  overflow: hidden;
+}
+
+/* Same display clock as the lock screen, a touch smaller. */
+.clock {
+  margin-top: 62px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  pointer-events: none;
+  text-shadow: 0 2px 24px rgba(0, 0, 0, 0.2);
+}
+.clock span {
+  font-size: 19px;
+  font-weight: 600;
+  text-transform: capitalize;
+  opacity: 0.8;
+}
+.clock b {
+  font-size: 88px;
+  line-height: 1;
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  font-variant-numeric: tabular-nums lining-nums;
+  font-feature-settings: "tnum", "lnum";
+  font-optical-sizing: auto;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 26px 4px 10px;
+}
+.header h2 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+.clear {
+  padding: 6px 14px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.empty {
+  margin-top: 60px;
+  text-align: center;
+  opacity: 0.6;
+}
