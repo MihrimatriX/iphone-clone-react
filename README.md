@@ -26,6 +26,8 @@ bun dev
 
 Sonra `http://localhost:3000` adresini aç.
 
+Docker ile: `docker compose up -d --build`
+
 ### Kontroller
 
 - **Fare:** sürükle = kamerayı döndür, çift tık = ekrana yakınlaş
@@ -50,6 +52,8 @@ bun dev
 ```
 
 Then open `http://localhost:3000`.
+
+With Docker: `docker compose up -d --build`
 
 ### Controls
 
