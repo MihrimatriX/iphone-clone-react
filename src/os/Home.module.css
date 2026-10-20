@@ -1,0 +1,104 @@
+.home {
+  position: absolute;
+  inset: 0;
+  color: var(--glass-fg);
+}
+
+.content {
+  position: absolute;
+  inset: 0;
+}
+
+/* Wallpaper + icons dim while an app is open (the app covers them; visible during open/close). */
+.dim {
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+  background: rgba(0, 0, 0, 0.35);
+  pointer-events: none;
+}
+
+.viewport {
+  position: absolute;
+  top: 62px;
+  left: 0;
+  right: 0;
+  height: 606px;
+  overflow: hidden;
+  touch-action: none;
+}
+
+.pages {
+  display: flex;
+  height: 100%;
+}
+
+.page {
+  flex: none;
+  width: var(--screen-w);
+  padding: 0 14px;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(6, 101px);
+  align-content: start;
+}
+
+/* iOS 18/26 "Search" pill above the dock; page dots replace it while swiping. */
+.search,
+.dots {
+  position: absolute;
+  bottom: 122px;
+  left: 50%;
+  translate: -50% 0;
+  height: 30px;
+  box-sizing: border-box;
+}
+.search {
+  padding: 0 13px 0 11px;
+  gap: 5px;
+  font-size: 13px;
+  font-weight: 600;
+}
+.dots {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 11px;
+}
+.dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: currentColor;
+  opacity: 0.35;
+  transition: opacity 0.2s;
+}
+.dotOn {
+  opacity: 1;
+}
+
+.dock {
+  position: absolute;
+  bottom: 12px;
+  left: 10px;
+  right: 10px;
+  height: 96px;
+  border-radius: 38px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0 6px;
+}
+.dock > button {
+  padding-top: 0;
+}
+
+.done {
+  position: absolute;
+  z-index: 5;
+  top: 52px;
+  right: 18px;
+  padding: 7px 18px;
+  font-weight: 600;
+}

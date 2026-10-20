@@ -1,0 +1,39 @@
+.scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 40;
+  background: rgba(0, 0, 0, 0.35);
+}
+
+.sheet {
+  position: absolute;
+  z-index: 41;
+  left: 8px;
+  right: 8px;
+  bottom: 8px;
+  max-height: 80%;
+  overflow-y: auto;
+  padding: 8px 0 calc(var(--safe-bottom) + 8px);
+  border-radius: 40px;
+  background: color-mix(in srgb, var(--bg-elev) 82%, transparent);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  backdrop-filter: blur(24px) saturate(180%);
+  box-shadow: 0 -8px 40px rgba(0, 0, 0, 0.25), inset 0 0 0 1px var(--glass-edge-soft);
+  color: var(--label);
+  touch-action: none;
+}
+
+.grabber {
+  width: 36px;
+  height: 5px;
+  margin: 0 auto 8px;
+  border-radius: 3px;
+  background: var(--label-3);
+}
+
+.title {
+  margin: 4px 20px 16px;
+  font-size: var(--fs-title3);
+  font-weight: 700;
+  text-align: center;
+}

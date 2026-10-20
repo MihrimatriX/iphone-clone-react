@@ -1,0 +1,136 @@
+.lock {
+  position: absolute;
+  inset: 0;
+  z-index: 40;
+  color: var(--glass-fg);
+  touch-action: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* iOS display clock: huge, heavy, tight, lining tabular digits, a soft halo for any wallpaper. */
+.clock {
+  margin-top: 62px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-shadow: 0 2px 24px rgba(0, 0, 0, 0.18), 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+.date {
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  text-transform: capitalize;
+  opacity: 0.82;
+}
+.time {
+  margin-top: -2px;
+  font-size: 108px;
+  line-height: 0.95;
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  font-variant-numeric: tabular-nums lining-nums;
+  font-feature-settings: "tnum", "lnum";
+  font-optical-sizing: auto;
+}
+
+.stack {
+  margin-top: auto;
+  margin-bottom: 128px;
+  width: 100%;
+  padding: 0 12px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.player {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+}
+.player button {
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+}
+.cover {
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  flex: none;
+}
+.meta {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  font-size: 15px;
+}
+.meta small {
+  opacity: 0.7;
+}
+
+.shortcuts {
+  position: absolute;
+  bottom: 50px;
+  left: 46px;
+  right: 46px;
+  display: flex;
+  justify-content: space-between;
+}
+.shortcut {
+  width: 50px;
+}
+.on {
+  background: rgba(255, 255, 255, 0.92);
+  color: #000;
+}
+/* Grows around the button while it is held; fires when it reaches full size. */
+.ring {
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  border: 2px solid currentColor;
+  opacity: 0;
+  scale: 0.8;
+  pointer-events: none;
+  transition: opacity 0.15s, scale 0.2s;
+}
+.holding .ring {
+  opacity: 0.55;
+  scale: 1;
+  transition: opacity 0.1s, scale 0.35s cubic-bezier(0.2, 0.7, 0.3, 1);
+}
+
+.hintWrap {
+  position: absolute;
+  bottom: 28px;
+}
+.hint {
+  padding: 4px 12px;
+  font-size: 13px;
+  font-weight: 500;
+  animation: hint-in 0.8s 0.5s both, hint-breathe 2.6s 1.3s ease-in-out infinite alternate;
+}
+@keyframes hint-in {
+  from {
+    opacity: 0;
+    translate: 0 4px;
+  }
+  to {
+    opacity: 0.7;
+  }
+}
+@keyframes hint-breathe {
+  from {
+    opacity: 0.7;
+  }
+  to {
+    opacity: 0.35;
+  }
+}

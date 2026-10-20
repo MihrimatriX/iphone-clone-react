@@ -1,0 +1,37 @@
+.get {
+  flex: none;
+  min-width: 72px;
+  height: 30px;
+  padding: 0 14px;
+  border-radius: var(--r-pill);
+  background: var(--fill);
+  color: var(--tint);
+  font-size: var(--fs-sub);
+  font-weight: 700;
+}
+.get:active {
+  opacity: 0.6;
+}
+.ring {
+  flex: none;
+  width: 72px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  color: var(--tint);
+}
+.ring svg {
+  rotate: -90deg;
+}
+.track,
+.progress {
+  fill: none;
+  stroke-width: 2.5;
+}
+.track {
+  stroke: var(--fill);
+}
+.progress {
+  stroke: var(--tint);
+  stroke-linecap: round;
+}

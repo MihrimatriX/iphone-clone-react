@@ -1,0 +1,87 @@
+.spotlight {
+  position: absolute;
+  inset: 0;
+  z-index: 35;
+  padding: 64px 16px 0;
+  box-sizing: border-box;
+  background: rgba(0, 0, 0, 0.25);
+  -webkit-backdrop-filter: blur(30px) saturate(160%);
+  backdrop-filter: blur(30px) saturate(160%);
+  color: #fff;
+  --glass-fg: #fff;
+}
+
+.field {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 46px;
+  padding: 0 8px 0 14px;
+}
+.field input {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  outline: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  font-size: 17px;
+}
+.field input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+.cancel {
+  padding: 0 8px;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.section h3 {
+  margin: 22px 4px 10px;
+  font-size: 15px;
+  font-weight: 600;
+  opacity: 0.8;
+}
+
+.apps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  row-gap: 14px;
+}
+.app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+}
+.app span {
+  max-width: 80px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.empty {
+  grid-column: 1 / -1;
+  margin: 0 4px;
+  opacity: 0.6;
+}
+
+.notes {
+  padding: 4px 0;
+}
+.note {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 12px 16px;
+  text-align: left;
+  font-size: 16px;
+}
+.note span {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}

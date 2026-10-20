@@ -1,0 +1,89 @@
+.glass {
+  position: relative;
+  isolation: isolate;
+  color: var(--glass-fg);
+  background: var(--glass-tint);
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-sat));
+  backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-sat));
+  box-shadow: var(--glass-shadow), inset 0 0 14px var(--glass-inner);
+  transition: background 0.3s, color 0.3s;
+}
+
+/* Chromium: real refraction before the blur (see refractionSupported) */
+:global([data-lg]) .glass {
+  backdrop-filter: url(#lg) blur(var(--glass-blur)) saturate(var(--glass-sat));
+}
+:global([data-lg]) .clear {
+  backdrop-filter: url(#lg) blur(var(--glass-blur-clear)) saturate(var(--glass-sat));
+}
+
+.clear {
+  background: var(--glass-tint-clear);
+  -webkit-backdrop-filter: blur(var(--glass-blur-clear)) saturate(var(--glass-sat));
+  backdrop-filter: blur(var(--glass-blur-clear)) saturate(var(--glass-sat));
+}
+
+/* specular rim: 1px gradient border lit from --glass-light-angle */
+.glass::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  padding: 1px;
+  border-radius: inherit;
+  background: linear-gradient(
+    var(--glass-light-angle),
+    var(--glass-edge),
+    transparent 32%,
+    transparent 68%,
+    var(--glass-edge-soft)
+  );
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* glare */
+.glass::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  background: radial-gradient(130% 90% at 25% 0%, rgba(255, 255, 255, 0.28), transparent 60%);
+  opacity: var(--glass-glare);
+  transition: opacity 0.2s;
+  pointer-events: none;
+}
+.interactive:active::after {
+  opacity: var(--glass-glare-pressed);
+}
+
+/* :where() keeps these defaults at zero specificity, so a component's own display/layout always wins
+   regardless of stylesheet order. */
+:where(.interactive) {
+  display: grid;
+  grid-auto-flow: column;
+  place-items: center;
+  place-content: center;
+  gap: 4px;
+  cursor: pointer;
+}
+
+.pill {
+  border-radius: var(--r-pill);
+}
+.rounded {
+  border-radius: var(--r-rounded);
+}
+.circle {
+  border-radius: 50%;
+  aspect-ratio: 1;
+}
+
+.defs {
+  position: absolute;
+  width: 0;
+  height: 0;
+}

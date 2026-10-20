@@ -1,0 +1,78 @@
+.profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  margin: 4px 0 24px;
+}
+.profile h2 {
+  margin: 8px 0 0;
+  font-size: var(--fs-title2);
+}
+.profile p {
+  margin: 0;
+}
+.profile span {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--label-2);
+  font-size: var(--fs-sub);
+}
+
+.timeline {
+  list-style: none;
+  margin: 0;
+  padding: 14px 16px 2px 36px;
+}
+.timeline li {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 14px;
+}
+.timeline li::before {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: -20px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--tint);
+}
+.timeline li:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 18px;
+  bottom: 0;
+  left: -16px;
+  border-left: 1.5px solid var(--sep);
+}
+.timeline span {
+  color: var(--label-2);
+  font-size: var(--fs-footnote);
+}
+.timeline p {
+  margin: 4px 0 0;
+  font-size: var(--fs-sub);
+  line-height: 1.4;
+}
+
+.skill {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.meter {
+  height: 6px;
+  border-radius: 3px;
+  background: var(--fill);
+  overflow: hidden;
+}
+.meter i {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #7b5cff, var(--tint));
+}

@@ -1,0 +1,6 @@
+*
+!package.json
+!bun.lock
+!public
+!src
+**/*.test.ts

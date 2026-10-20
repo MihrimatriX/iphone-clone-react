@@ -1,0 +1,41 @@
+.bar {
+  position: absolute;
+  z-index: 60;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--safe-top);
+  /* Ears either side of the 126px island; each group is centred in its ear like iOS. */
+  display: grid;
+  grid-template-columns: 1fr 140px 1fr;
+  align-items: center;
+  padding: 3px 6px 0;
+  box-sizing: border-box;
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  pointer-events: none;
+  transition: color 0.3s;
+}
+
+.time {
+  grid-column: 1;
+  justify-self: center;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-variant-numeric: tabular-nums lining-nums;
+  font-feature-settings: "tnum", "lnum";
+}
+
+.right {
+  grid-column: 3;
+  justify-self: center;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.right svg {
+  flex: none;
+}

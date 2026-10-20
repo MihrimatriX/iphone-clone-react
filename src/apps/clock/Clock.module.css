@@ -1,0 +1,151 @@
+.cityTime {
+  font-size: 34px;
+  font-weight: 300;
+  color: var(--label);
+  font-variant-numeric: tabular-nums;
+}
+
+.toolbar {
+  position: absolute;
+  top: calc(var(--safe-top) + 4px);
+  right: 16px;
+}
+.plus {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: var(--orange);
+  background: var(--fill);
+}
+
+.alarmTime {
+  font-size: 44px;
+  font-weight: 300;
+  font-variant-numeric: tabular-nums;
+}
+.delete {
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  color: var(--label-2);
+}
+
+.timeInput {
+  display: block;
+  margin: 0 auto 20px;
+  font: inherit;
+  font-size: 44px;
+  font-weight: 300;
+  color: var(--label);
+  background: var(--fill);
+  border: 0;
+  border-radius: 16px;
+  padding: 6px 16px;
+  color-scheme: dark;
+}
+.save {
+  display: block;
+  margin: 0 16px;
+  width: calc(100% - 32px);
+  height: 52px;
+  border-radius: var(--r-pill);
+  background: var(--orange);
+  color: #000;
+  font-weight: 600;
+}
+
+.bigTime {
+  margin: 30px 0 24px;
+  text-align: center;
+  font-size: 78px;
+  font-weight: 200;
+  font-variant-numeric: tabular-nums;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+  margin-bottom: 28px;
+}
+.round {
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 16px;
+  font-weight: 500;
+}
+.round span {
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 0 0 2px #000;
+}
+.green {
+  background: rgba(48, 209, 88, 0.25);
+  color: #30d158;
+}
+.red {
+  background: rgba(255, 69, 58, 0.25);
+  color: #ff453a;
+}
+.gray {
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+}
+.orange {
+  background: rgba(255, 159, 10, 0.25);
+  color: #ff9f0a;
+}
+
+.picker {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  margin: 40px 0;
+}
+.picker label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 17px;
+  font-weight: 600;
+}
+.picker select {
+  font: inherit;
+  font-size: 34px;
+  font-weight: 300;
+  color: #fff;
+  background: var(--fill);
+  border: 0;
+  border-radius: 12px;
+  padding: 6px 8px;
+  color-scheme: dark;
+}
+
+.ring {
+  width: 280px;
+  height: 280px;
+  margin: 20px auto 36px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+}
+.ring span {
+  width: 262px;
+  height: 262px;
+  border-radius: 50%;
+  background: #000;
+  display: grid;
+  place-items: center;
+  font-size: 60px;
+  font-weight: 200;
+  font-variant-numeric: tabular-nums;
+}

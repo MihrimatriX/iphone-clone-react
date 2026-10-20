@@ -1,0 +1,52 @@
+.switcher {
+  position: absolute;
+  inset: 0;
+  z-index: 50;
+  background: rgba(0, 0, 0, 0.45);
+  -webkit-backdrop-filter: blur(24px);
+  backdrop-filter: blur(24px);
+  color: #fff;
+  overflow: hidden;
+  touch-action: none;
+}
+
+.row {
+  position: absolute;
+  top: 150px;
+  left: 70px;
+  display: flex;
+  gap: 20px;
+}
+
+.card {
+  flex: none;
+  width: 230px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  touch-action: none;
+}
+
+.label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.preview {
+  height: 480px;
+  border-radius: 36px;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+}
+
+.empty {
+  position: absolute;
+  top: 45%;
+  width: 100%;
+  text-align: center;
+  opacity: 0.7;
+}

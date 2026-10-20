@@ -1,0 +1,172 @@
+.smart {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin: 0 16px 26px;
+}
+.card {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-rows: auto auto;
+  align-items: center;
+  padding: 12px;
+  border-radius: var(--r-row);
+  background: var(--bg-elev);
+  text-align: left;
+}
+.cardIcon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: #fff;
+}
+.count {
+  font-size: var(--fs-title);
+  font-weight: 700;
+  text-align: right;
+}
+.cardName {
+  grid-column: 1 / -1;
+  margin-top: 8px;
+  font-weight: 600;
+  color: var(--label-2);
+}
+
+.newButton {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  height: 44px;
+  padding: 0 8px;
+  font-weight: 600;
+  color: var(--tint);
+}
+
+.items {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0 20px;
+}
+.item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 52px;
+  padding-right: 16px;
+  border-bottom: 0.5px solid var(--sep);
+  overflow: hidden;
+}
+
+.check {
+  flex: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 1.5px var(--label-3);
+  transition: background 0.2s, box-shadow 0.2s;
+}
+.checked {
+  background: var(--list);
+  box-shadow: inset 0 0 0 1.5px var(--list), inset 0 0 0 4px var(--bg);
+}
+
+.text {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 8px 0;
+}
+.text small {
+  font-size: var(--fs-footnote);
+  color: var(--label-2);
+}
+.struck {
+  color: var(--label-2);
+}
+.overdue {
+  color: var(--red) !important;
+}
+
+.remove {
+  width: 32px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  color: var(--label-2);
+}
+
+.empty {
+  margin-top: 40px;
+  text-align: center;
+  color: var(--label-2);
+}
+.clear {
+  display: block;
+  margin: 20px auto;
+  color: var(--red);
+  font-weight: 600;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 0 16px;
+}
+.field {
+  height: 48px;
+  padding: 0 16px;
+  border: 0;
+  border-radius: var(--r-row);
+  background: var(--fill);
+  color: var(--label);
+  font: inherit;
+  outline: 0;
+}
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.chip {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  height: 34px;
+  padding: 0 14px;
+  border-radius: var(--r-pill);
+  background: var(--fill);
+  font-size: var(--fs-sub);
+}
+.chip i {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+.chipOn {
+  background: var(--label);
+  color: var(--bg);
+}
+.date {
+  height: 34px;
+  padding: 0 10px;
+  border: 0;
+  border-radius: var(--r-pill);
+  background: var(--fill);
+  color: var(--label);
+  font: inherit;
+  font-size: var(--fs-sub);
+}
+.save {
+  height: 50px;
+  border-radius: var(--r-pill);
+  background: var(--tint);
+  color: #fff;
+  font-weight: 600;
+}
+.save:disabled {
+  opacity: 0.4;
+}

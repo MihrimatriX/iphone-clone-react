@@ -1,0 +1,150 @@
+.scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 50;
+  background: rgba(0, 0, 0, 0.45);
+  -webkit-backdrop-filter: blur(28px) saturate(150%);
+  backdrop-filter: blur(28px) saturate(150%);
+  color: #fff;
+  touch-action: none;
+}
+
+/* iOS 18/26: 4 × 6 modules; dense flow tucks Focus under the two small circles, beside the sliders. */
+.grid {
+  position: absolute;
+  top: 104px;
+  left: 0;
+  right: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 74px);
+  grid-auto-rows: 74px;
+  grid-auto-flow: row dense;
+  gap: 16px;
+  justify-content: center;
+}
+
+.connectivity {
+  grid-column: span 2;
+  grid-row: span 2;
+  border-radius: var(--r-card);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  place-items: center;
+  padding: 10px;
+}
+
+.circle {
+  width: 74px;
+  justify-self: center;
+}
+.small {
+  width: 58px;
+}
+/* On: accent fill (connectivity) or white with a coloured glyph (system toggles). */
+.circle[aria-pressed="true"],
+.focus[aria-pressed="true"] {
+  background: var(--on-bg, #fff);
+  color: var(--on-fg, #1c1c1e);
+}
+
+.focus {
+  grid-column: span 2;
+  border-radius: 37px;
+  display: flex;
+  justify-content: flex-start;
+  gap: 10px;
+  padding: 0 14px;
+  text-align: left;
+}
+.focusBadge {
+  flex: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: rgba(255, 255, 255, 0.16);
+}
+.focus[aria-pressed="true"] .focusBadge {
+  background: #5e5ce6;
+  color: #fff;
+}
+.focusText {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  font-size: 15px;
+  line-height: 1.2;
+}
+.focusText b {
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.focusText small {
+  font-size: 12px;
+  opacity: 0.6;
+}
+
+.music {
+  grid-column: span 2;
+  grid-row: span 2;
+  border-radius: var(--r-card);
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: 14px;
+  min-width: 0;
+}
+.music b,
+.music small {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.music small {
+  opacity: 0.7;
+}
+.cover {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  margin-bottom: 6px;
+}
+.controls {
+  margin-top: auto;
+  display: flex;
+  justify-content: space-around;
+}
+.controls button {
+  width: 40px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+}
+
+.slider {
+  grid-row: span 2;
+  width: 74px;
+  height: 164px;
+  border-radius: 37px;
+}
+
+/* Right-edge page indicator; the first (current) page is bright. */
+.rail {
+  position: absolute;
+  right: 5px;
+  top: 330px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+.rail > * {
+  opacity: 0.45;
+}
+.rail > :first-child {
+  opacity: 1;
+}

@@ -1,0 +1,137 @@
+.today {
+  height: 40px;
+  padding: 0 14px;
+  font-size: var(--fs-sub);
+  font-weight: 600;
+  color: var(--red);
+}
+.add {
+  width: 40px;
+  color: var(--red);
+}
+
+.nav {
+  display: grid;
+  grid-template-columns: 28px 1fr 28px;
+  align-items: center;
+  padding: 0 6px;
+  color: var(--red);
+}
+.nav button {
+  height: 28px;
+  display: grid;
+  place-items: center;
+}
+
+.weekdays,
+.grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+.weekdays {
+  text-align: center;
+  font-size: var(--fs-caption);
+  font-weight: 600;
+  color: var(--label-2);
+  text-transform: uppercase;
+}
+
+.grid {
+  padding: 4px 16px 18px;
+  touch-action: pan-y;
+  border-bottom: 0.5px solid var(--sep);
+  margin-bottom: 20px;
+}
+
+.day {
+  position: relative;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  font-size: var(--fs-title3);
+}
+.day span {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  transition: background 0.2s, color 0.2s;
+}
+.outside {
+  opacity: 0.3;
+}
+.isToday span {
+  color: var(--red);
+  font-weight: 600;
+}
+.selected span {
+  background: var(--label);
+  color: var(--bg);
+  font-weight: 600;
+}
+.selected.isToday span {
+  background: var(--red);
+  color: #fff;
+}
+.dot {
+  position: absolute;
+  bottom: 2px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--label-2);
+}
+
+.remove {
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  color: var(--label-2);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 0 16px;
+}
+.field {
+  height: 48px;
+  padding: 0 16px;
+  margin-bottom: 10px;
+  border: 0;
+  border-radius: var(--r-row);
+  background: var(--fill);
+  color: var(--label);
+  font: inherit;
+  outline: 0;
+}
+.line {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 48px;
+  padding: 0 4px;
+  border-bottom: 0.5px solid var(--sep);
+}
+.line input {
+  border: 0;
+  border-radius: 8px;
+  padding: 6px 10px;
+  background: var(--fill);
+  color: var(--label);
+  font: inherit;
+}
+.save {
+  height: 50px;
+  margin-top: 18px;
+  border-radius: var(--r-pill);
+  background: var(--red);
+  color: #fff;
+  font-weight: 600;
+}
+.save:disabled {
+  opacity: 0.4;
+}
